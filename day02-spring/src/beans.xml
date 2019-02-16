@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 配置一个 bean（对象） -->
+    <bean id="userService" class="me.yanrs.service.UserServiceImpl" ></bean>
+
+    <!-- 装配（书写） bean 的三种方式 -->
+    <!-- 方式1 -->
+    <bean id="userService1" class="me.yanrs.service.UserServiceImpl" ></bean>
+
+    <!-- 方式2 通过静态工厂方法 -->
+    <bean id="userService2" class="me.yanrs.service.UserServiceFactory" factory-method="CreateUserServiceFactory"> </bean>
+
+    <!-- 方式3 通过实例工厂方法 -->
+    <bean id="UserServiceFactory2" class="me.yanrs.service.UserServiceFactory2"></bean>
+    <bean id="userService3" factory-bean="UserServiceFactory2" factory-method="CreateUserServiceFactory"></bean>
+</beans>
