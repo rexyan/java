@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 构造方法注入属性值 -->
+    <!--<bean id="stu" class="me.yanrs.model.Student">-->
+        <!--&lt;!&ndash; 相当于调用了  public Student(String username, String password) 这个构造方法&ndash;&gt;-->
+        <!--<constructor-arg name="username" value="zhangsan"></constructor-arg>-->
+        <!--<constructor-arg name="password" value="123456"></constructor-arg>-->
+    <!--</bean>-->
+
+    <!-- 属性setter方法注入 -->
+    <!--<bean id="stu" class="me.yanrs.model.Student">-->
+        <!--<property name="username" value="zhangsan"></property>-->
+        <!--<property name="password" value="123456"></property>-->
+        <!--<property name="age" value="20"></property>-->
+    <!--</bean>-->
+
+    <!-- 集合注入 -->
+    <bean id="pro" class="me.yanrs.model.Programmer">
+
+        <!-- List -->
+        <property name="cars">
+            <list>
+                <value>宝马</value>
+                <value>ofo</value>
+            </list>
+        </property>
+
+        <!-- set-->
+        <property name="pats">
+            <set>
+                <value>猫</value>
+                <value>狗</value>
+            </set>
+        </property>
+
+        <!-- map-->
+        <property name="infos">
+            <map>
+                <entry key="姓名" value="test"></entry>
+                <entry key="ip" value="127.0.0.1"></entry>
+            </map>
+        </property>
+
+        <!-- Properties-->
+        <property name="mysqlContentInfos">
+            <props>
+                <prop key="url">mysql:jdbc///localhost:3306/dbname</prop>
+                <prop key="user">root</prop>
+                <prop key="password">12345</prop>
+            </props>
+        </property>
+
+        <!-- 数组-->
+        <property name="members">
+            <array>
+                <value>父亲</value>
+                <value>母亲</value>
+                <value>姐姐</value>
+            </array>
+        </property>
+
+    </bean>
+</beans>
