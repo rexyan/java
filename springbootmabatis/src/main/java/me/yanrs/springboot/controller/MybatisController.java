@@ -15,4 +15,9 @@ public class MybatisController {
     public Object student(){
         return studentService.getAllStudent();
     }
+
+    @GetMapping("/boot/update")
+    public int update_student(){
+        return studentService.update();
+    }
 }
